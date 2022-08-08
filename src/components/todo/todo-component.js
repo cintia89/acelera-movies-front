@@ -1,9 +1,10 @@
-
-export const ToDoComponent = ({ name, description }) => {
+export const ToDoComponent = ({ login, password }) => {
   return (
     <>
-      <span>{name}</span>
-      <p>{description}</p>
+      <span>{login}</span>
+      <p>{password}</p>
     </>
   )
 }
+
+/* PASSAR ATRIBUTOS */
