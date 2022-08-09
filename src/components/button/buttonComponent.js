@@ -1,7 +1,7 @@
-export const ButtonComponent = ({ onClick, name }) => {
+export const ButtonComponent = ({ onClick, name, className }) => {
   return (
     <>
-      <button onClick= {onClick} >{name}</button>
+      <button className={className} onClick={onClick} >{name}</button>
     </>
   )
 }
