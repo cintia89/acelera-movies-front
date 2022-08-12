@@ -5,7 +5,7 @@ import { client } from '../../service/client'
 import { useNavigate } from 'react-router'
 import './style.css'
 
-export const ToDo = () => {
+export const Login = () => {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
