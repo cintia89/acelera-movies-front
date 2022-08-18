@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { client } from '../../service/client'
 import { useNavigate } from 'react-router'
 import './style.css'
+import { Header } from '../../components/header/componentHeader'
+import { Link } from 'react-router-dom'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -23,11 +25,14 @@ export const Login = () => {
   }
 
   return (
-    <div className='caixa'>
-      <InputComponent label="login" type="email" placeholder="E-mail" onChange={onChange} />
-      <InputComponent label="password" type="password" placeholder="password" onChange={onChangeSenha} />
-      <ButtonComponent onClick={handleClick} name="Entrar" />
-    </div>
-
+    <>
+      <Header></Header>
+      <form className='caixa'>
+        <InputComponent label="Login" type="email" placeholder="E-mail" onChange={onChange} />
+        <InputComponent label="Password" type="password" placeholder="password" onChange={onChangeSenha} />
+        <Link to="/reset"> Esqueceu sua senha? </Link>
+        <ButtonComponent className="button" onClick={handleClick} name="Entrar" />
+      </form>
+    </>
   )
 }

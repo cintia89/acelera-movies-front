@@ -1,12 +1,28 @@
-import { FormMovie } from '../formsMovie/forms'
+import { useState } from 'react'
 import { ButtonComponent } from '../button/buttonComponent'
+import './modal.css'
 
-export const Modal = ({ title }) => {
+export const Modal = ({ children, title }) => {
+  const [toggle, setToggle] = useState(false)
+
+  const handleClick = () => {
+    return setToggle(toggle => !toggle)
+  }
   return (
-    <>
-      <ButtonComponent name={'Click aqui'}></ButtonComponent>
-      <p>{title}</p>
-      <FormMovie label='title' ></FormMovie>
-    </>
+    <div>
+      <ButtonComponent onClick={handleClick} name={'Click aqui'}></ButtonComponent>
+
+      {toggle && (<div className='modal-container'>
+        <div className='modal'>
+          <div>{title}
+            <ButtonComponent onClick={handleClick} className='close' name={'X'} ></ButtonComponent>
+          </div>
+          <div>
+            {children}
+          </div>
+        </div>
+      </div>)}
+
+    </div>
   )
 }

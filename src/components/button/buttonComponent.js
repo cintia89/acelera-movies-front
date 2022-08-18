@@ -1,3 +1,5 @@
+import './button.css'
+
 export const ButtonComponent = ({ onClick, name, className }) => {
   return (
     <>

@@ -1,0 +1,25 @@
+.title{
+  display:flex;
+  margin: 10px;
+  justify-content: space-between;
+}
+textarea{
+  width: 400px;
+  height: 100px;
+}
+.btn{
+  color: white;
+  border-color: green;
+  background-color: rgb(8, 215, 187);
+  border: 1px solid;
+  width: 400px;
+  height: 30px;
+  }
+.form{
+  max-width: 500px;
+  max-height: 900px;
+  overflow: auto;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+}
