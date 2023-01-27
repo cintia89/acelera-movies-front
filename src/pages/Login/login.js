@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router'
 import './style.css'
 import { Header } from '../../components/header/componentHeader'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -28,8 +30,10 @@ export const Login = () => {
     <>
       <Header></Header>
       <form className='caixa'>
-        <InputComponent label="Login" type="email" placeholder="E-mail" onChange={onChange} />
+        <InputComponent label="Login" type="email" placeholder="E-mail" onChange={onChange} >  </InputComponent>
+        <FontAwesomeIcon icon={faUser} />
         <InputComponent label="Password" type="password" placeholder="password" onChange={onChangeSenha} />
+        <FontAwesomeIcon icon={faKey} />
         <Link to="/reset"> Esqueceu sua senha? </Link>
         <ButtonComponent className="button" onClick={handleClick} name="Entrar" />
       </form>
