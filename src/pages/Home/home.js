@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { client } from '../../service/client'
-import './style.css'
+import './home.css'
 import { Link } from 'react-router-dom'
 import { Modal } from '../../components/modal/modal'
-import { Header } from '../../components/header/componentHeader'
 import { FormMovie } from '../../components/formsMovie/formsComponent'
 
 export const Home = () => {
@@ -46,25 +45,29 @@ export const Home = () => {
     fetchData()
   }, [])
   return (
-    <>
-      <Header />
-
-      <div className='lista'>
-        <Modal >
+    <section>
+      <header className='header'><h1>All Movies</h1></header>
+      <aside className='aside'>
+        <h2>Hello, User!</h2>
+      <Modal >
           <FormMovie onChange={onChange} onClick={onSubmit} />
         </Modal>
-        <h1>All Movies</h1>
-        <ul>
-          {movies.map(
-            (movie, index) => (
-              <li key={index}>
-                < Link to={'/movie/' + movie.id}>
-                  {movie.title} - {movie.director}</Link>
-              </li>
-            ))
-          }
-        </ul>
-      </div >
-    </>
+        <hr></hr>
+      </aside>
+      <main className='main'>
+          <div className='lista'>
+          <ul>
+            {movies.map(
+              (movie, index) => (
+                <li key={index}>
+                  < Link to={'/movie/' + movie.id}>
+                    {movie.title} - {movie.director}</Link>
+                </li>
+              ))
+            }
+          </ul>
+        </div >
+      </main>
+    </section>
   )
 }
