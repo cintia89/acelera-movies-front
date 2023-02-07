@@ -34,7 +34,7 @@ export const Login = () => {
           <InputComponent label="Password" type="password" placeholder="password" onChange={onChangeSenha} />
           <FontAwesomeIcon icon={faKey} />
           <Link to="/reset"> Esqueceu sua senha? </Link>
-          <ButtonComponent className="button" onClick={handleClick} name="Entrar" />
+          <ButtonComponent className="button" onClick={handleClick} text="Entrar" />
         </div>
       </form>
     </>
