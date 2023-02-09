@@ -12,19 +12,21 @@ export const Home = () => {
   const fetchData = () => {
     return client.get('/movie').then((response) => setMovies(response.data))
   }
-  const handleStar = (value) => {
-    setMovies({ ...movies, note: value })
-  }
+
   useEffect(() => {
     fetchData()
   }, [])
+  const handleStar = (value) => {
+    setMovies({ ...movies, note: value })
+  }
 
   return (
     <section>
-            <span id="VoltaAoTopo"></span>
+
       <header className='header'><h1>All Movies</h1></header>
       <aside className='aside'>
         <h2>Hello, User!</h2>
+        <br></br>
       <Modal text='Add Movie'>
           <FormMovie/>
         </Modal>
@@ -37,19 +39,24 @@ export const Home = () => {
               (movie, index) => (
                 <li key={index}>
                   < Link to={'/movie/' + movie.id}>
+
+                    <div className='container'>
+                    <h3>Titulo:{movie.title}
+
+                   </h3>
+
+                  <div className='estrelas'>
+                    <Rating readonly={true} onChange={handleStar} ratingValue={movie.note} />
+                   </div>
+                 </div>
+                 <h5>Date: {movie.releaseDate}</h5>
                   <img src={movie.image} alt={`Poster do filme ${movie.title}`} />
-                  - {movie.director}
-                  <div>
-                  <h2>{movie.title}</h2>
-                  <h5>Date: {(movie.releaseDate, 'dd/mm/yyyy')}</h5>
-                </div>
                   <p>
                     {movie.resume}
                   </p>
+                  <br></br>
                   </Link>
-                  <div>
-                  <Rating readonly={true} onChange={handleStar} ratingValue={movie.note} />
-                </div>
+
                 </li>
               ))
             }
