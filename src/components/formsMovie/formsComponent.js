@@ -11,21 +11,23 @@ export const FormMovie = ({ method = 'POST', id = '', callback = () => { } }) =>
     classification: '',
     subtitle: '',
     image: '',
-    releaseDate: new Date(),
+    releaseDate: '',
     director: '',
-    writer: '',
+    writter: '',
     studio: '',
-    actors: '',
+    actores: '',
     resume: '',
     awards: '',
     note: 0
   }
   const [valor, setValor] = useState(dados)
+
   const onChange = (ev) => {
     const { name, value } = ev.target
     setValor({ ...valor, [name]: value })
   }
-  useEffect(() => {
+
+  const fetchData = () => {
     if (id) {
       client.get(`/movie/${id}`).then(res => {
         setValor(res.data.movie)
@@ -35,13 +37,15 @@ export const FormMovie = ({ method = 'POST', id = '', callback = () => { } }) =>
           setValor()
         })
     }
+  }
+
+  useEffect(() => {
+    fetchData()
   }, [])
 
   const onSubmit = (ev) => {
     ev.preventDefault()
-    const data = {
-      ...valor, releaseDate: new Date(valor.releaseDate)
-    }
+    const data = valor
     client(`/movie/${id}`,
       {
         method,
@@ -81,7 +85,7 @@ export const FormMovie = ({ method = 'POST', id = '', callback = () => { } }) =>
           </div>
           <div className='title'>
             <InputComponent onChange={onChange} label='Stars' type='text' placeholder='stars' name='note' value={valor.note}/>
-            <InputComponent onChange={onChange} label='actores' type='text' placeholder='actores' name='actores' value={valor.actores}/>
+            <InputComponent onChange={onChange} label='actores' type='text' placeholder='actores' name='actors' value={valor.actores}/>
           </div>
           <ButtonComponent onClick={onSubmit} className="btn" text= 'salvar' ></ButtonComponent>
         </form >

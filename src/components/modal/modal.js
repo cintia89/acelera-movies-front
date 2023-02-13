@@ -18,7 +18,7 @@ export const Modal = ({ children, title, icon, callback, text, label }) => {
     <div className='modal-container'>
         <div className='modal'>
           <div>{title}
-            <ButtonComponent onClick={handleClick} className='close' name={'X'} ></ButtonComponent>
+            <ButtonComponent onClick={handleClick} className='close' text={'X'} ></ButtonComponent>
           </div>
           <div>
             {children}

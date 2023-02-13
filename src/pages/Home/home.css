@@ -30,6 +30,7 @@ aside {
 main {
   grid-area: main;
   margin: 20px;
+ 
 }
 
 hr{
@@ -40,51 +41,53 @@ hr{
 }
 
 h2{
+  color:black;
   background-color: #bfbcbcea;
   padding: 20px;
   font-size: 20px;
 }
 
 h1{
+  color:black;
   background-color: #bfbcbcea;
   margin-top: 30px;
-  margin-left: 10px;
-  padding: 5px;
+  padding: 10px;
   font-size: 20px;
 }
 
-img{
-  width:9em;
-  padding-bottom: 30px ;
-  overflow: hidden;
+h4{
+  padding-bottom: 20px ;
 }
 
-h5{
+h5 {
   color:black;
-  padding-bottom: 40px ;
-}
-p {
-  overflow: hidden;
   position: relative;
-  line-height: 1.2em;
-  max-height: 8.2em;
+  line-height: 1.2em; 
   text-align: justify;
+  font-size: 15px;
+  padding-bottom: 20px ;
+
 }
 
-.estrelas {
-  content:'\f005';
-  color: #FC0;
-  display:flex ;
-  justify-content: space-between;
 
+img{
+  width: 200px;
+  height: 250px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  
+}
+h3 {
+  color:black;
+  display: flex;
+  justify-content: space-evenly
 }
 .container {
-  display:flex ;
-  justify-content: space-between;
+  display: flex;
+  justify-content: space-evenly;
 }
-img{
-  width:9em;
-  padding-bottom: 30px ;
-  overflow: hidden;
-  
+
+a {
+  text-decoration: none;
 }
