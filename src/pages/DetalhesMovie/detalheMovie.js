@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router'
 import { Modal } from '../../components/modal/modal'
 import { FormMovie } from '../../components/formsMovie/formsComponent'
 import { ButtonComponent } from '../../components/button/buttonComponent'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { Rating } from 'react-simple-star-rating'
 
@@ -35,16 +36,19 @@ export const Movie = () => {
   return (
     <section>
       <header className="header">
-        <Modal FontAwesomeIcon icon={faPencilAlt} text="Editar Movie">
+      <h1>titulo: {movie.title}
+      <p>
+      <FontAwesomeIcon icon={faPencilAlt}/>
+        <Modal text='editar'>
           <FormMovie id={movie.id} method="PUT" />{' '}
         </Modal>
+        <FontAwesomeIcon icon={faTrashAlt}/>
         <ButtonComponent
-          FontAwesomeIcon
-          icon={faTrashAlt}
           text="deletar"
           onClick={() => handleDelete(movie.id)}
         />
-        <h1>titulo: {movie.title}</h1>
+        </p>
+        </h1>
       </header>
       <aside className="aside">
         <h2>Hello, User!</h2>
