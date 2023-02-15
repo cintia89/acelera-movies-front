@@ -4,9 +4,9 @@ import { useParams, useNavigate } from 'react-router'
 import { Modal } from '../../components/modal/modal'
 import { FormMovie } from '../../components/formsMovie/formsComponent'
 import { ButtonComponent } from '../../components/button/buttonComponent'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { Rating } from 'react-simple-star-rating'
+import './movie.css'
 
 export const Movie = () => {
   const handleDate = (date) => {
@@ -30,7 +30,13 @@ export const Movie = () => {
     navigate('/home')
   }
   const handleStar = (value) => {
-    setMovie({ ...movie, note: value })
+    const nova = ({ ...movie, note: value })
+    setMovie(nova)
+    client.put(`/movie/${movie.id}`, nova)
+      .catch(error => {
+        console.log(error)
+        setMovie([])
+      })
   }
 
   return (
@@ -38,14 +44,14 @@ export const Movie = () => {
       <header className="header">
       <h1>titulo: {movie.title}
       <p>
-      <FontAwesomeIcon icon={faPencilAlt}/>
-        <Modal text='editar'>
+        <iconComponen icon={faPencilAlt}/>
+        <Modal iconComponen={faPencilAlt} text='editar'>
           <FormMovie id={movie.id} method="PUT" />{' '}
         </Modal>
-        <FontAwesomeIcon icon={faTrashAlt}/>
         <ButtonComponent
           text="deletar"
           onClick={() => handleDelete(movie.id)}
+          iconComponen={faTrashAlt}
         />
         </p>
         </h1>
@@ -68,7 +74,6 @@ export const Movie = () => {
                     <div className="estrelas">
                       <h3>Titulo:{movie.title}
                        <Rating
-                         readonly={true}
                          onChange={handleStar}
                          ratingValue={movie.note}
                        />
@@ -83,12 +88,14 @@ export const Movie = () => {
                   </div>
 
         </div>
-         <p>Genero: {movie.gender}</p>
+        <div className='paragrafos'>
+         <p className='Genero'> {movie.gender}</p>
           <p>Classification: {movie.classification}</p>
           <p>Director: {movie.director}</p>
           <p>writer: {movie.writter}</p>
           <p>studio: {movie.studio}</p>
           <p>Stars: {movie.actores}</p>
+          </div>
       </main>
     </section>
   )

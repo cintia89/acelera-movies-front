@@ -29,10 +29,10 @@ export const Login = () => {
     <>
       <form className='caixa'>
         <div className='card'>
-          <InputComponent label="Login" type="email" placeholder="E-mail" onChange={onChange} />
-          <FontAwesomeIcon icon={faUser} />
-          <InputComponent label="Password" type="password" placeholder="password" onChange={onChangeSenha} />
+        <FontAwesomeIcon icon={faUser} />
+          <InputComponent label="Login" type="email" onChange={onChange} />
           <FontAwesomeIcon icon={faKey} />
+          <InputComponent label="Password" type="password" onChange={onChangeSenha} />
           <Link to="/reset"> Esqueceu sua senha? </Link>
           <ButtonComponent className="button" onClick={handleClick} text="Entrar" />
         </div>

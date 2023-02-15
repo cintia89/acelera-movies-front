@@ -23,7 +23,8 @@ export const Home = () => {
     fetchData()
   }, [])
   const handleStar = (value) => {
-    setMovies({ ...movies, note: value })
+    const novo = ({ ...movies, note: value })
+    setMovies(novo)
   }
 
   return (
@@ -44,7 +45,6 @@ export const Home = () => {
           <ul>
             {movies.map((movie, index) => (
               <li key={index}>
-                <Link to={'/movie/' + movie.id}>
                   <div className="container">
                     <img
                       src={movie.image}
@@ -52,6 +52,7 @@ export const Home = () => {
                     />
 
                     <div className="estrelas">
+                    <Link to={'/movie/' + movie.id}>
                       <h3>Titulo:{movie.title}
                       <Rating
                         readonly={true}
@@ -59,12 +60,12 @@ export const Home = () => {
                         ratingValue={movie.note}
                       />
                       </h3>
+                      </Link>
                       <h4> Date: {handleDate(new Date(movie.releaseDate))}</h4>
                       <h5>{movie.resume}</h5>
                     </div>
                     </div>
 
-                </Link>
               </li>
             ))}
           </ul>

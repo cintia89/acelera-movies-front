@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ButtonComponent } from '../button/buttonComponent'
 import './modal.css'
 
-export const Modal = ({ children, title, icon, callback, text, label }) => {
+export const Modal = ({ children, title, callback, text, label, iconComponent }) => {
   const [toggle, setToggle] = useState(false)
 
   const handleClick = () => {
@@ -12,7 +12,7 @@ export const Modal = ({ children, title, icon, callback, text, label }) => {
     }
   }
   if (!toggle) {
-    return <ButtonComponent class name='buttom' icon={icon} text={text} onClick={() => setToggle(true)}>{label}</ButtonComponent>
+    return <ButtonComponent class name='buttom' text={text} iconComponent={iconComponent} onClick={() => setToggle(true)}>{label}</ButtonComponent>
   }
   return (
     <div className='modal-container'>

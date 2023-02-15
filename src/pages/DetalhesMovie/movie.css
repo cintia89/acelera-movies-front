@@ -1,0 +1,16 @@
+.Genero{
+    color: white;
+    background-color:  #bfbcbcea;
+    border-radius: 20px;
+    width: 100px;
+    height: 20px;
+    padding: 2px;
+    text-align: center;
+}
+.paragrafos {
+    background-color: rgb(249, 249, 240);
+    
+}
+p{
+    padding:10px;
+}
