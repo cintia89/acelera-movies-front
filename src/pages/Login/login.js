@@ -20,8 +20,12 @@ export const Login = () => {
     return setPassword(password.target.value)
   }
   const handleClick = () => {
-    const login = { email, password }
-    client.post('/login', login)
+    client.post('/login', {}, {
+      auth: {
+        username: email,
+        password: password
+      }
+    })
     navigate('/home')
   }
 
