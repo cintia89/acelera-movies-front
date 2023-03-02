@@ -19,23 +19,26 @@ export const Login = () => {
   const onChangeSenha = (password) => {
     return setPassword(password.target.value)
   }
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault()
     client.post('/login', {}, {
       auth: {
         username: email,
         password: password
       }
-    })
-    navigate('/home')
+    }).then(res => {
+      if (res.data.auth) {
+        navigate('/home')
+      }
+    }).catch(error => alert(error))
   }
 
   return (
     <>
       <form className='caixa'>
         <div className='card'>
-        <FontAwesomeIcon icon={faUser} />
-          <InputComponent label="Login" type="email" onChange={onChange} />
-          <FontAwesomeIcon icon={faKey} />
+          <InputComponent label="Login" type="email" onChange={onChange} icon={faUser} />
+          <FontAwesomeIcon icon={faKey} className='icon'/>
           <InputComponent label="Password" type="password" onChange={onChangeSenha} />
           <Link to="/reset"> Esqueceu sua senha? </Link>
           <ButtonComponent className="button" onClick={handleClick} text="Entrar" />

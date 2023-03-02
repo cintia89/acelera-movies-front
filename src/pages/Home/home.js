@@ -52,15 +52,12 @@ export const Home = () => {
                     />
 
                     <div className="estrelas">
-                    <Link to={'/movie/' + movie.id}>
-                      <h3>Titulo:{movie.title}
+                      <h3><Link to={'/movie/' + movie.id}>Titulo:{movie.title}</Link>
                       <Rating
-                        readonly={true}
                         onChange={handleStar}
                         ratingValue={movie.note}
                       />
                       </h3>
-                      </Link>
                       <h4> Date: {handleDate(new Date(movie.releaseDate))}</h4>
                       <h5>{movie.resume}</h5>
                     </div>

@@ -34,65 +34,64 @@ main {
  
 }
 
-hr{
-  background-color: #bfbcbcea;
-  margin-top: 10%;
-  margin-bottom: 10%;
-  width: 80%;
-}
-
-h2{
+.aside h2 {
   color:black;
   background-color: #bfbcbcea;
   padding: 20px;
   font-size: 20px;
 }
 
-h1{
+.aside hr {
+  background-color: #bfbcbcea;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  width: 80%;
+}
+
+.header h1 {
   color:black;
   background-color: #bfbcbcea;
   margin-top: 30px;
-  padding: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 5px;
   font-size: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-h4{
+.estrelas h3 {
+  color:black;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.estrelas h4 {
   padding-bottom: 20px ;
 }
 
-h5 {
+.estrelas h5 {
   color:black;
-  position: relative;
   line-height: 1.2em; 
   text-align: justify;
   font-size: 15px;
-  padding-bottom: 20px ;
-  width: 700px;
 
 }
 
 
-img{
+img {
   width: 200px;
   height: 250px;
   padding: 1%;
   
 }
-h3 {
-  color:black;
-  display: flex;
-  justify-content: space-between;
-  padding: 1%;
-}
+
 .container {
   display: flex;
   justify-content: space-between;
-  padding: auto;
   background-color: rgb(249, 249, 240);
+  
 }
 
-a {
-  text-decoration: none;
-}

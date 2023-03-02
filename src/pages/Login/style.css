@@ -36,4 +36,10 @@
     border: 2px solid blueviolet;
   }
 
- 
+.icon{
+    position: absolute;
+    float: inline-start;
+    width: 5%;
+    height: 3%;
+    
+}

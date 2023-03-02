@@ -68,7 +68,7 @@ export const FormMovie = ({ method = 'POST', id = '', callback = () => { } }) =>
           <label>Resume</label>
           <textarea onChange={onChange} row='50' type='text' name='resume'/>
           <div className='title'>
-            <InputComponent onChange={onChange} label='Release Date' type='text' placeholder='dd/mm/yyyy' name='releaseDate' />
+            <InputComponent onChange={onChange} label='Release Date' type='date' placeholder='dd/mm/yyyy' name='releaseDate' />
             <InputComponent onChange={onChange} label='Image' type='text' placeholder='http://...' name='image' />
           </div>
           <div className='title'>
